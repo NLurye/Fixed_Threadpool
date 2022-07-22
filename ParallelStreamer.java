@@ -36,7 +36,7 @@ public class ParallelStreamer<E> {
 		
 	// tasks added evenly in each queue every round
 	public void add(E e) throws InterruptedException{
-	while (!stop){
+	if (!stop){
 			queues.get(round).put(e);
 			round=(round+1)%num_of_queues;
 		}
